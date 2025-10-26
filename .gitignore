@@ -137,3 +137,16 @@ dmypy.json
 # OS
 .DS_Store
 Thumbs.db
+
+# Node modules
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Frontend build
+frontend/dist/
+frontend/.env.local
+
+# Vite
+.vite
+dist/
