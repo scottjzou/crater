@@ -2,9 +2,10 @@ import { useState } from 'react'
 
 interface SidebarProps {
   onCreateClick: () => void
+  onUploadClick: () => void
 }
 
-export default function Sidebar({ onCreateClick }: SidebarProps) {
+export default function Sidebar({ onCreateClick, onUploadClick }: SidebarProps) {
   const [folders] = useState<string[]>(['Documents', 'Research', 'Notes'])
   const [selectedFolder, setSelectedFolder] = useState<string>('Documents')
 
@@ -71,7 +72,10 @@ export default function Sidebar({ onCreateClick }: SidebarProps) {
             </svg>
             Create Content
           </button>
-          <button className="w-full px-3 py-2 text-left rounded-lg flex items-center hover:bg-gray-800">
+          <button 
+            onClick={onUploadClick}
+            className="w-full px-3 py-2 text-left rounded-lg flex items-center hover:bg-gray-800"
+          >
             <svg
               className="w-4 h-4 mr-2"
               fill="none"
