@@ -30,6 +30,12 @@ function App() {
     return () => subscription.unsubscribe()
   }, [])
 
+  useEffect(() => {
+    if (user) {
+      loadDocuments()
+    }
+  }, [user])
+
   const handleUploadComplete = async () => {
     setIsUploading(false)
     // Refresh documents list
@@ -95,7 +101,10 @@ function App() {
         </main>
       </div>
       {isCreateModalOpen && (
-        <CreateContentModal onClose={() => setIsCreateModalOpen(false)} />
+        <CreateContentModal 
+          onClose={() => setIsCreateModalOpen(false)}
+          documents={documents}
+        />
       )}
     </div>
   )
